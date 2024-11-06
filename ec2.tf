@@ -4,7 +4,7 @@ resource "aws_instance" "jenkins" {
   key_name      = "nvirginia-devops"
   count = 1
   vpc_security_group_ids = [
-    "sg-0a4aad1f3fd186745"
+    "sg-012f058de412a1366"
   ]
   subnet_id = "subnet-0f7f1a84a20b5d114"
   tags = {
