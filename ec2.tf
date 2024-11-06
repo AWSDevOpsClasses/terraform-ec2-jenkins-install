@@ -1,5 +1,16 @@
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  owners = ["amazon"]
+  filter {
+    name = "name"
+    values = [ "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20230516" ]
+  }
+}
+
 resource "aws_instance" "jenkins" {
-  ami           = "ami-0866a3c8686eaeeba"
+#  ami           = "ami-0866a3c8686eaeeba"
+  ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.medium"
   key_name      = "nvirginia-devops"
   count = 1
