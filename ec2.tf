@@ -1,4 +1,4 @@
-resource "aws_instance" "tomcat" {
+resource "aws_instance" "jenkins" {
   ami           = "ami-0866a3c8686eaeeba"
   instance_type = "t3.medium"
   key_name      = "nvirginia-devops"
@@ -12,6 +12,6 @@ resource "aws_instance" "tomcat" {
   }
   
 #USERDATA in AWS EC2 using Terraform
-  user_data = file("userdata-tomcat.sh") 
+  user_data = file("userdata-jenkins.sh") 
 
 }
