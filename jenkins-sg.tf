@@ -2,6 +2,18 @@
 resource "aws_security_group" "jenkinssg" {
   name                = "jenkins-SG"
   description         = "Security Group for Jenkins Server"
+/*  dynamic "ingress" {
+     for_each = local.ingress_rules
+
+     content {
+        description = ingress.value.description
+        from_port   = ingress.value.port
+        to_port     = ingress.value.port
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+      }
+   } */
+
   egress = [
     {
       cidr_blocks      = [ "0.0.0.0/0", ]
@@ -44,7 +56,7 @@ resource "aws_security_group" "jenkinssg" {
 #     to_port          = 8080
      to_port          = local.jenkins_port
    },
-  ] 
+  ]
 
 /*  dynamic "ingress" {
       for_each = local.inbound_ports
@@ -66,7 +78,7 @@ resource "aws_security_group" "jenkinssg" {
       }
   } */
 
-/*  tags = {
-  Name = “name_security_group” 
-  } */
+  tags = {
+    Name = "AWS security group dynamic block"
+  }
 }
