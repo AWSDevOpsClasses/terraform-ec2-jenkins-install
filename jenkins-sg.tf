@@ -42,3 +42,4 @@ resource "aws_security_group" "jenkinssg" {
 /*  tags = {
   Name = “name_security_group” 
   } */
+}
