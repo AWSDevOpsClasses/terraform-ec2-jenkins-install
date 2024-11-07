@@ -28,6 +28,4 @@ resource "aws_instance" "jenkins" {
 
   #USERDATA in AWS EC2 using Terraform
   user_data = file("userdata-jenkins.sh")
-}    
-
 }
