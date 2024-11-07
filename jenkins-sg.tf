@@ -19,8 +19,8 @@ resource "aws_security_group" "jenkinssg" {
    {
      cidr_blocks      = [ "0.0.0.0/0", ]
      description      = "ssh"
-     from_port        = 22
-#     from_port        = local.ssh_port
+#     from_port        = 22
+     from_port        = local.ssh_port
      ipv6_cidr_blocks = []
      prefix_list_ids  = []
      protocol         = "tcp"
@@ -44,7 +44,28 @@ resource "aws_security_group" "jenkinssg" {
 #     to_port          = 8080
      to_port          = local.jenkins_port
    },
-  ]
+  ] 
+
+/*  dynamic "ingress" {
+      for_each = local.inbound_ports
+      content {
+         from_port   = ingress.value
+         to_port     = ingress.value
+         protocol    = "tcp"
+         cidr_blocks = [ "0.0.0.0/0" ]
+      }
+  }
+
+  dynamic "egress" {
+      for_each = local.outbound_ports
+      content {
+         from_port   = egress.value
+         to_port     = egress.value
+         protocol    = "tcp"
+         cidr_blocks = [ "0.0.0.0/0" ]
+      }
+  } */
+
 /*  tags = {
   Name = “name_security_group” 
   } */

@@ -21,11 +21,11 @@ resource "aws_instance" "jenkins" {
     "sg-012f058de412a1366"
   ] */
   vpc_security_group_ids = [aws_security_group.jenkinssg.id]
+   #USERDATA in AWS EC2 using Terraform
+  user_data = file("userdata-jenkins.sh")
   subnet_id = "subnet-0f7f1a84a20b5d114"
   tags = {
     Name = "${var.prefix}${count.index}"
   }
 
-  #USERDATA in AWS EC2 using Terraform
-  user_data = file("userdata-jenkins.sh")
 }
