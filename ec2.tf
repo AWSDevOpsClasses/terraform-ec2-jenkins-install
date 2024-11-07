@@ -26,6 +26,10 @@ resource "aws_instance" "jenkins" {
     Name = "${var.prefix}${count.index}"
   }
 
+  #USERDATA in AWS EC2 using Terraform
+  user_data = file("userdata-jenkins.sh")
+}    
+
 # Security group resource for Ubuntu server
 resource "aws_security_group" "jenkinssg" {
   egress = [
@@ -41,10 +45,10 @@ resource "aws_security_group" "jenkinssg" {
       to_port          = 0
     }
   ]
- ingress                = [
+  ingress                = [
    {
      cidr_blocks      = [ "0.0.0.0/0", ]
-     description      = ""
+     description      = "ssh"
      from_port        = 22
      ipv6_cidr_blocks = []
      prefix_list_ids  = []
@@ -52,12 +56,12 @@ resource "aws_security_group" "jenkinssg" {
      security_groups  = []
      self             = false
      to_port          = 22
-  }
-  ]
- ingress                = [
+   },
+  #]
+  #ingress                = 
    {
      cidr_blocks      = [ "0.0.0.0/0", ]
-     description      = ""
+     description      = "jenkins"
      from_port        = 8080
      ipv6_cidr_blocks = []
      prefix_list_ids  = []
@@ -65,10 +69,9 @@ resource "aws_security_group" "jenkinssg" {
      security_groups  = []
      self             = false
      to_port          = 8080
-  }
-}
-
-#USERDATA in AWS EC2 using Terraform
-  user_data = file("userdata-jenkins.sh") 
-
+   },
+  ]
+/*  tags = {
+  Name = “name_security_group” 
+  } */
 }
