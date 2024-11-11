@@ -18,5 +18,5 @@ What are Terraform Dynamic blocks? - Part 8
 https://www.youtube.com/watch?v=s-Q5oTVVC_o&t=44s
 https://jhooq.com/terraform-dynamic-block/
 
---------------------------
+------------------------------
 https://github.com/kunduso/ec2-userdata-terraform/tree/add-userdata
