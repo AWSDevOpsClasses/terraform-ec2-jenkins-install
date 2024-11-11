@@ -2,6 +2,7 @@
 resource "aws_security_group" "jenkinssg" {
   name                = "jenkins-SG"
   description         = "Security Group for Jenkins Server"
+  vpc_id              = aws_vpc.app-vpc.id
 /*  dynamic "ingress" {
      for_each = local.ingress_rules
 
@@ -79,6 +80,6 @@ resource "aws_security_group" "jenkinssg" {
   } */
 
   tags = {
-    Name = "AWS security group dynamic block"
+    Name = "Jenkins AWS security group"
   }
 }
