@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=NPQ8HFEuGxs
 
 https://www.middlewareinventory.com/blog/terraform-aws-ec2-user_data-example/
 
-----------------
+----------------------------
 Data source example for Ref
 
 https://github.com/devopsproin/terraform_for_beginners/tree/main
