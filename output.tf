@@ -5,7 +5,7 @@ output "private_ip" {
 
 output "public_ip" {
   value       = "${aws_instance.jenkins.*.public_ip}"
-  description = "PrivateIP address details"
+  description = "PublicIP address details"
 }  
 
 output "ami_id" {
