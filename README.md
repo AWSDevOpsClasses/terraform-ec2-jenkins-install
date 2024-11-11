@@ -20,3 +20,7 @@ https://jhooq.com/terraform-dynamic-block/
 
 ------------------------------
 https://github.com/kunduso/ec2-userdata-terraform/tree/add-userdata
+-----------------------------------------------------------
+How to Create AWS VPC, EC2-Instance and S3 Bucket using Terraform | Infrastructure as a code (Iaac)
+https://github.com/vijaygiduthuri/terraform-YouTube/tree/main
+https://www.youtube.com/watch?v=McmLkAWhkps
